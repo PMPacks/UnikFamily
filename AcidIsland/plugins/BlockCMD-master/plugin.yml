@@ -1,0 +1,39 @@
+name: BlockCMD
+main: BlockCMD\BlockCMD
+version: 1.0.0-beta
+api: [3.0.0-ALPHA10, 3.0.0-ALPHA11, 3.0.0-ALPHA12, 3.0.0]
+
+author: kenygamer
+description: A PocketMine-MP plugin to block certain commands from being used by players in your server
+
+commands:
+ blockcmd:
+  description: Allows you to manage blocked commands.
+  usage: "/blockcmd <add|list|remove>"
+  permission: blockcmd.command.blockcmd
+
+permissions:
+ blockcmd:
+  description: Allows access to all BlockCMD features.
+  default: false
+  children:
+   blockcmd.access:
+    description: Allows access to use all blocked commands.
+    default: false
+   blockcmd.command:
+    description: Allows access to all BlockCMD commands.
+    default: op
+    children:
+     blockcmd.command.blockcmd:
+      description: Allows access to the blockcmd command.
+      default: op
+      children:
+       blockcmd.command.blockcmd.add:
+        description: Allows access to the BlockCMD add subcommand.
+        default: op
+       blockcmd.command.blockcmd.list:
+        description: Allows access to the BlockCMD list subcommand.
+        default: op
+       blockcmd.command.blockcmd.remove:
+        description: Allows access to the BlockCMD remove subcommand.
+        default: op
